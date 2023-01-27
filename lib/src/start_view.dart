@@ -97,13 +97,15 @@ class _StartViewState extends State<StartView> {
               // ),
               MaterialButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.fade,
-                      child: const UploadCamera(),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   PageTransition(
+                  //     type: PageTransitionType.fade,
+                  //     child: const UploadCamera(),
+                  //   ),
+                  // );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UploadCamera()));
                 },
                 color: const Color(0xff091F56),
                 textColor: Colors.white,
