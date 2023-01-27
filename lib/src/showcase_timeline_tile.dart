@@ -1,9 +1,12 @@
 import 'dart:ui';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gangganggang/send_letter_button.dart';
+import 'package:gangganggang/upload_camera.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
+import 'package:gangganggang/upload_gallery.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -254,7 +257,14 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UploadCamera(),
+                          ),
+                        );
+                      },
                       child: SentLetterWidget(
                         text: '바로찍기',
                         image: 'assets/icons/camera.svg',
@@ -265,7 +275,14 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                       height: 80,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UploadGallery(),
+                          ),
+                        );
+                      },
                       child: SentLetterWidget(
                         text: '사진첩',
                         image: 'assets/icons/image.svg',

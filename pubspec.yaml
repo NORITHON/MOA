@@ -38,6 +38,10 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_highlight: ^0.7.0
   flutter_svg: ^1.1.6
+  google_mlkit_face_detection: ^0.5.0
+  camera: ^0.10.2+1
+  image_picker: ^0.8.6+1
+  permission_handler: ^10.2.0
 
 dev_dependencies:
   flutter_test:
