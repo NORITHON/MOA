@@ -94,158 +94,154 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
               ),
             ],
           ),
-          floatingActionButton: ClipRRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.94,
-                //width: 410,
-                height: 198,
-                child: Stack(
-                  //will break to another line on overflow
-                  //use vertical to show  on vertical axis
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(41, 43, 0, 0),
-                        child: SizedBox(
-                          height: 62,
-                          width: 62,
-                          // child: FloatingActionButton(
-                          //   onPressed: () {
-                          //     //action code for button 3
-                          //   },
-                          //   backgroundColor: Colors.transparent,
-                          //   child: Image(
-                          //       image: AssetImage('assets/images/baby.png')),
-                          // ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
-                        child: SizedBox(
-                            height: 80,
-                            width: 80,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                // _showModalBottomSheet();
-                                Navigator.push(
-                                    context,
-                                    PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: const UploadCamera()));
+          // floatingActionButton: ClipRRect(
+          //   child: BackdropFilter(
+          //     filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          // child: Container(
+          //   width: MediaQuery.of(context).size.width * 0.94,
+          //   //width: 410,
+          //   height: 198,
+          //   child: Stack(
+          //     //will break to another line on overflow
+          //     //use vertical to show  on vertical axis
+          //     children: <Widget>[
+          // Align(
+          //   alignment: Alignment.topLeft,
+          //   child: Padding(
+          //     padding: const EdgeInsets.fromLTRB(41, 43, 0, 0),
+          //     child: SizedBox(
+          //       height: 62,
+          //       width: 62,
+          // child: FloatingActionButton(
+          //   onPressed: () {
+          //     //action code for button 3
+          //   },
+          //   backgroundColor: Colors.transparent,
+          //   child: Image(
+          //       image: AssetImage('assets/images/baby.png')),
+          // ),
+          //),
+          // ),
+          //),
+          floatingActionButton: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
+              child: SizedBox(
+                  height: 80,
+                  width: 80,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      // _showModalBottomSheet();
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.fade,
+                              child: const UploadCamera()));
 
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             const UploadCamera()));
-                                //action code for button 2
-                              },
-                              backgroundColor: Color(0xff091F56),
-                              child: Image(
-                                  image: AssetImage(
-                                      'assets/icons/icon-camera-mono.png')),
-                            )),
-                      ),
-                    ), // button second
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 43, 41, 0),
-                        child: SizedBox(
-                          height: 62,
-                          width: 62,
-                          // child: FloatingActionButton(
-                          //   onPressed: () {
-                          //     //action code for button 3
-                          //   },
-                          //   backgroundColor: Colors.transparent,
-                          //   child: Image(
-                          //       image: AssetImage('assets/images/mom.png')),
-                          // ),
-                        ),
-                      ),
-                    ), // button third
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             const UploadCamera()));
+                      //action code for button 2
+                    },
+                    backgroundColor: Color(0xff091F56),
+                    child: Image(
+                        image: AssetImage('assets/icons/icon-camera-mono.png')),
+                  )),
+            ),
+          ), // button second
+          // Align(
+          //   alignment: Alignment.topRight,
+          //   child: Padding(
+          //     padding: const EdgeInsets.fromLTRB(0, 43, 41, 0),
+          //     child: SizedBox(
+          //       height: 62,
+          //       width: 62,
+          // child: FloatingActionButton(
+          //   onPressed: () {
+          //     //action code for button 3
+          //   },
+          //   backgroundColor: Colors.transparent,
+          //   child: Image(
+          //       image: AssetImage('assets/images/mom.png')),
+          // ),
+        ),
+      ),
+    ); // button third
 
-                    // Add more buttons here
-                  ],
+    //   ),
+    // ),
+    bottomNavigationBar:
+    BottomAppBar(
+      color: const Color(0x2A2A2A),
+      child: SizedBox(
+        height: 78,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {},
+                child: SizedBox(
+                  height: 82,
+                  width: 75,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.home,
+                      ),
+                      Text(
+                        '홈',
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ),
-          bottomNavigationBar: BottomAppBar(
-            color: const Color(0x2A2A2A),
-            child: SizedBox(
-              height: 78,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 82,
-                        width: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.home,
-                            ),
-                            Text(
-                              '홈',
-                            ),
-                          ],
-                        ),
+              Spacer(),
+              GestureDetector(
+                onTap: () {},
+                child: SizedBox(
+                  height: 82,
+                  width: 75,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.favorite),
+                      Text(
+                        '돌아보기',
                       ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 82,
-                        width: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.favorite),
-                            Text(
-                              '돌아보기',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 82,
-                        width: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.settings),
-                            Text(
-                              '설정',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
+              Spacer(),
+              GestureDetector(
+                onTap: () {},
+                child: SizedBox(
+                  height: 82,
+                  width: 75,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.settings),
+                      Text(
+                        '설정',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
+    //     ),
+    //   ),
+    // );
   }
 
   Future _showModalBottomSheet() async {
