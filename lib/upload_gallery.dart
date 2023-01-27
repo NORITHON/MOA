@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gangganggang/painters/face_detector_painter.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'camera_view.dart';
 
@@ -22,11 +25,52 @@ class _UploadGalleryState extends State<UploadGallery> {
       enableClassification: true,
     ),
   );
+
   bool _canProcess = true;
   bool _isBusy = false;
   CustomPaint? _customPaint;
   String? _text;
   String? _smile;
+  File? _image;
+  String? _path;
+  ImagePicker? _imagePicker;
+  Function(InputImage inputImage)? onImage;
+
+  @override
+  void initState() {
+    super.initState();
+    _getImage(ImageSource.gallery);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  Future _getImage(ImageSource source) async {
+    setState(() {
+      _image = null;
+      _path = null;
+    });
+    final pickedFile = await _imagePicker?.pickImage(source: source);
+    if (pickedFile != null) {
+      _processPickedFile(pickedFile);
+    }
+    setState(() {});
+  }
+
+  Future _processPickedFile(XFile? pickedFile) async {
+    final path = pickedFile?.path;
+    if (path == null) {
+      return;
+    }
+    setState(() {
+      _image = File(path);
+    });
+    _path = path;
+    final inputImage = InputImage.fromFilePath(path);
+    onImage!(inputImage);
+  }
 
   @override
   Widget build(BuildContext context) {
