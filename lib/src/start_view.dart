@@ -7,8 +7,10 @@ import 'package:gangganggang/src/baby_showcase_timeline_tile.dart';
 import 'package:gangganggang/src/bottom_navigation.dart';
 import 'package:gangganggang/src/tab_item.dart';
 import 'package:gangganggang/src/tab_navigator.dart';
+import 'package:gangganggang/upload_camera.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 import 'showcase_timeline.dart';
@@ -96,7 +98,14 @@ class _StartViewState extends State<StartView> {
                         width: 80,
                         child: FloatingActionButton(
                           onPressed: () {
-                            _showModalBottomSheet();
+                            // _showModalBottomSheet();
+                            Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                child: const UploadCamera(),
+                              ),
+                            );
                             //action code for button 2
                           },
                           backgroundColor: Color(0xff091F56),
