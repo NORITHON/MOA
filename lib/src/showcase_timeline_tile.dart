@@ -99,7 +99,7 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.94,
                 //width: 410,
-                height: 80,
+                height: 98,
                 child: FloatingActionButton(
                   onPressed: () {
                     // _showModalBottomSheet();
