@@ -33,7 +33,7 @@ class _MyAppState extends State<moment_finish> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 40.0,
+                  vertical: 55.0,
                 ),
               ),
               Padding(
@@ -47,7 +47,7 @@ class _MyAppState extends State<moment_finish> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    '소중한 모먼트가 성공적으로 추가되었습니다!',
+                    '소중한 모먼트가\n성공적으로 추가되었습니다!',
                     style: pageTitleStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -57,6 +57,13 @@ class _MyAppState extends State<moment_finish> {
                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
                 child: Align(
                   alignment: Alignment.center,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 65.0, vertical: 10.0),
+                child: SizedBox(
+                  height: 380,
+                  width: 50,
                 ),
               ),
             ],
@@ -87,19 +94,19 @@ class _MyAppState extends State<moment_finish> {
       child: Align(
         alignment: Alignment.centerRight,
         child: Material(
-          borderRadius: signinButtonBorderRadius,
-          color: signinButtonColor,
+          borderRadius: defaultSkipButtonBorderRadius,
+          color: defaultSkipButtonColor,
           child: InkWell(
-            borderRadius: signinButtonBorderRadius,
+            borderRadius: defaultSkipButtonBorderRadius,
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => moment_finish()));
             },
             child: const Padding(
-              padding: signinButtonPadding,
+              padding: defaultSkipButtonPadding,
               child: Text(
                 '확인',
-                style: signinButtonTextStyle,
+                style: defaultSkipButtonTextStyle,
               ),
             ),
           ),
