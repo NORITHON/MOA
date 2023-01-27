@@ -39,6 +39,9 @@ dependencies:
   flutter_highlight: ^0.7.0
   flutter_svg: ^1.1.6
   colorful_safe_area: ^0.3.0
+  flutter_native_splash: ^2.2.17
+  toggle_switch: ^2.0.1
+  datepicker_dropdown: ^0.0.7+3
 
 dev_dependencies:
   flutter_test:
