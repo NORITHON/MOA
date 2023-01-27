@@ -8,6 +8,7 @@ import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'main.dart';
+import 'moment_add.dart';
 
 enum ScreenMode { liveFeed, gallery }
 
@@ -239,7 +240,7 @@ class _CameraViewState extends State<CameraView> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
-                    onTap: () {
+                    onTap: () async {
                       _getImage(ImageSource.camera);
                     },
                     child: const SentLetterWidget(
@@ -255,7 +256,7 @@ class _CameraViewState extends State<CameraView> {
                     onTap: () {
                       _getImage(ImageSource.gallery);
                     },
-                    child: SentLetterWidget(
+                    child: const SentLetterWidget(
                       text: '사진첩',
                       image: 'assets/icons/image.svg',
                       color: Color(0xffADB6C8),
@@ -267,11 +268,11 @@ class _CameraViewState extends State<CameraView> {
           ],
         ),
       ),
-      if (_image != null)
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text('${widget.smile ?? ''}'),
-        ),
+      // if (_image != null)
+      //   Padding(
+      //     padding: const EdgeInsets.all(16.0),
+      //     child: Text('${widget.smile ?? ''}'),
+      //   ),
     ]);
   }
 
@@ -336,6 +337,12 @@ class _CameraViewState extends State<CameraView> {
     _path = path;
     final inputImage = InputImage.fromFilePath(path);
     widget.onImage(inputImage);
+    setState(() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MomentAdd(image: _image, path: _path)));
+    });
   }
 
   Future _processCameraImage(CameraImage image) async {
