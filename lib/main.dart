@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gangganggang/src/introduction_view.dart';
+import 'package:gangganggang/src/start_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'src/showcase_timeline_tile.dart';
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: ShowcaseTimelineTile(),
+      home: StartView(),
     );
   }
 }

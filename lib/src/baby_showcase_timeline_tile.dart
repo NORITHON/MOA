@@ -3,39 +3,20 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gangganggang/send_letter_button.dart';
-import 'package:gangganggang/src/baby_showcase_timeline_tile.dart';
-import 'package:gangganggang/src/bottom_navigation.dart';
 import 'package:gangganggang/src/tab_item.dart';
-import 'package:gangganggang/src/tab_navigator.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 import 'showcase_timeline.dart';
 
-class ShowcaseTimelineTile extends StatefulWidget {
+class BabyShowcaseTimelineTile extends StatefulWidget {
   @override
-  State<ShowcaseTimelineTile> createState() => _ShowcaseTimelineTileState();
+  State<BabyShowcaseTimelineTile> createState() =>
+      _BabyShowcaseTimelineTileState();
 }
 
-class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
-  var _currentTab = TabItem.home;
-
-  final _navigatorKeys = {
-    TabItem.favorite: GlobalKey<NavigatorState>(),
-    TabItem.home: GlobalKey<NavigatorState>(),
-    TabItem.grow: GlobalKey<NavigatorState>(),
-  };
-
-  void _selectTab(TabItem tabItem) {
-    if (tabItem == _currentTab) {
-      /// 네비게이션 탭을 누르면, 해당 네비의 첫 스크린으로 이동!
-      _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
-    } else {
-      setState(() => _currentTab = tabItem);
-    }
-  }
-
+class _BabyShowcaseTimelineTileState extends State<BabyShowcaseTimelineTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,12 +31,13 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
         ),
       ),
       child: SafeArea(
+        top: false,
         bottom: false,
         child: Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black,
           body: Stack(
             fit: StackFit.expand,
-            children: <Widget>[
+            children: [
               Image(
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.contain,
@@ -112,78 +94,66 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
               ),
             ],
           ),
-          floatingActionButton: ClipRRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.94,
-                //width: 410,
-                height: 198,
-                child: Stack(
-                  //will break to another line on overflow
-                  //use vertical to show  on vertical axis
+          bottomNavigationBar: BottomAppBar(
+            color: const Color(0x2A2A2A),
+            child: SizedBox(
+              height: 78,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(41, 43, 0, 0),
-                        child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              backgroundColor: Colors.transparent,
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            BabyShowcaseTimelineTile()));
-                                //action code for button 1
-                              },
-                              child: Image(
-                                  image: AssetImage('assets/images/baby.png')),
-                            )),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 82,
+                        width: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.home,
+                            ),
+                            Text(
+                              '홈',
+                            ),
+                          ],
+                        ),
                       ),
-                    ), //button first
-                    Align(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
-                        child: SizedBox(
-                            height: 80,
-                            width: 80,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                _showModalBottomSheet();
-                                //action code for button 2
-                              },
-                              backgroundColor: Color(0xff091F56),
-                              child: Image(
-                                  image: AssetImage(
-                                      'assets/icons/icon-camera-mono.png')),
-                            )),
+                    ),
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 82,
+                        width: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.favorite),
+                            Text(
+                              '돌아보기',
+                            ),
+                          ],
+                        ),
                       ),
-                    ), // button second
-
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 43, 41, 0),
-                        child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                //action code for button 3
-                              },
-                              backgroundColor: Colors.transparent,
-                              child: Image(
-                                  image: AssetImage('assets/images/mom.png')),
-                            )),
+                    ),
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 82,
+                        width: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.settings),
+                            Text(
+                              '설정',
+                            ),
+                          ],
+                        ),
                       ),
-                    ), // button third
-
-                    // Add more buttons here
+                    ),
                   ],
                 ),
               ),
