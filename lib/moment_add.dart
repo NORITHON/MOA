@@ -53,7 +53,7 @@ class _MyAppState extends State<moment_add> {
                   'assets/images/baby_mom.png',
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 45.0),
                 child: Align(
                   alignment: Alignment.center,
@@ -64,45 +64,66 @@ class _MyAppState extends State<moment_add> {
                   ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('가을'),
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(
-                      Colors.white), //syleForm에서  primarycolor랑 같다.
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                          side: BorderSide(color: Colors.white))),
-                  backgroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.disabled)) {
-                      // disabled : onpressed가 null일때 , pressed : 클릭됐을때
-                      return const Color(0xff1765AC);
-                    } else {
-                      return Colors.transparent;
-                    }
-                  }),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('당신'),
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(
-                      Colors.white), //syleForm에서  primarycolor랑 같다.
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                          side: BorderSide(color: Colors.white))),
-                  backgroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.disabled)) {
-                      // disabled : onpressed가 null일때 , pressed : 클릭됐을때
-                      return const Color(0xff1765AC);
-                    } else {
-                      return Colors.transparent;
-                    }
-                  }),
-                ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 45.0),
+                child: Row(children: [
+                  SizedBox(
+                    height: 50,
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('가을'),
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(
+                            Colors.white), //syleForm에서  primarycolor랑 같다.
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                    side: BorderSide(color: Colors.white))),
+
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.disabled)) {
+                            // disabled : onpressed가 null일때 , pressed : 클릭됐을때
+                            return const Color(0xff1765AC);
+                          } else {
+                            return Colors.transparent;
+                          }
+                        }),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  ),
+                  SizedBox(
+                    height: 50,
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('당신'),
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(
+                            Colors.white), //syleForm에서  primarycolor랑 같다.
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                    side: BorderSide(color: Colors.white))),
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith((states) {
+                          if (states.contains(MaterialState.disabled)) {
+                            // disabled : onpressed가 null일때 , pressed : 클릭됐을때
+                            return const Color(0xff1765AC);
+                          } else {
+                            return Colors.transparent;
+                          }
+                        }),
+                      ),
+                    ),
+                  ),
+                ]),
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
@@ -158,7 +179,7 @@ class _MyAppState extends State<moment_add> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 45.0),
+                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10),
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -169,7 +190,7 @@ class _MyAppState extends State<moment_add> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                padding: EdgeInsets.symmetric(horizontal: 65.0, vertical: 10.0),
                 child: TextField(
                   style: pageInfoStyle,
                   textAlign: TextAlign.left,
@@ -178,6 +199,13 @@ class _MyAppState extends State<moment_add> {
                     hintStyle: TextStyle(color: Colors.grey),
                     fillColor: Colors.white,
                   ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 65.0, vertical: 10.0),
+                child: SizedBox(
+                  height: 130,
+                  width: 50,
                 ),
               ),
             ],
@@ -198,8 +226,8 @@ class _MyAppState extends State<moment_add> {
           controller: ScrollController(),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
+              const Padding(
+                padding: EdgeInsets.symmetric(
                   vertical: 40.0,
                 ),
               ),
@@ -224,18 +252,18 @@ class _MyAppState extends State<moment_add> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 45.0),
+                padding: EdgeInsets.symmetric(horizontal: 65.0),
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    '이사진을 나타내는 설명단어를\n추가해주세요',
+                    '이 사진을 나타내는 설명단어를\n추가해주세요!',
                     style: pageTitleStyle,
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: 10.0),
+                padding: EdgeInsets.symmetric(horizontal: 65.0, vertical: 30.0),
                 child: TextField(
                   style: pageInfoStyle,
                   textAlign: TextAlign.left,
@@ -244,6 +272,13 @@ class _MyAppState extends State<moment_add> {
                     hintStyle: TextStyle(color: Colors.grey),
                     fillColor: Colors.white,
                   ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 65.0, vertical: 10.0),
+                child: SizedBox(
+                  height: 120,
+                  width: 50,
                 ),
               ),
             ],
@@ -266,19 +301,19 @@ class _MyAppState extends State<moment_add> {
       child: Align(
         alignment: Alignment.centerRight,
         child: Material(
-          borderRadius: signinButtonBorderRadius,
-          color: signinButtonColor,
+          borderRadius: defaultSkipButtonBorderRadius,
+          color: defaultSkipButtonColor,
           child: InkWell(
-            borderRadius: signinButtonBorderRadius,
+            borderRadius: defaultSkipButtonBorderRadius,
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => moment_finish()));
             },
             child: const Padding(
-              padding: signinButtonPadding,
+              padding: defaultSkipButtonPadding,
               child: Text(
                 '작성 완료',
-                style: signinButtonTextStyle,
+                style: defaultSkipButtonTextStyle,
               ),
             ),
           ),
