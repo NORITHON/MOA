@@ -110,16 +110,17 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(41, 43, 0, 0),
                         child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                //action code for button 3
-                              },
-                              backgroundColor: Colors.transparent,
-                              child: Image(
-                                  image: AssetImage('assets/images/baby.png')),
-                            )),
+                          height: 62,
+                          width: 62,
+                          // child: FloatingActionButton(
+                          //   onPressed: () {
+                          //     //action code for button 3
+                          //   },
+                          //   backgroundColor: Colors.transparent,
+                          //   child: Image(
+                          //       image: AssetImage('assets/images/baby.png')),
+                          // ),
+                        ),
                       ),
                     ),
                     Align(
@@ -152,22 +153,22 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                             )),
                       ),
                     ), // button second
-
                     Align(
                       alignment: Alignment.topRight,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 43, 41, 0),
                         child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                //action code for button 3
-                              },
-                              backgroundColor: Colors.transparent,
-                              child: Image(
-                                  image: AssetImage('assets/images/mom.png')),
-                            )),
+                          height: 62,
+                          width: 62,
+                          // child: FloatingActionButton(
+                          //   onPressed: () {
+                          //     //action code for button 3
+                          //   },
+                          //   backgroundColor: Colors.transparent,
+                          //   child: Image(
+                          //       image: AssetImage('assets/images/mom.png')),
+                          // ),
+                        ),
                       ),
                     ), // button third
 
