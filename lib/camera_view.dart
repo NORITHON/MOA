@@ -3,8 +3,11 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gangganggang/send_letter_button.dart';
+import 'package:gangganggang/upload_camera.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'main.dart';
 
@@ -85,28 +88,57 @@ class _CameraViewState extends State<CameraView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          if (_allowPicker)
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: _switchScreenMode,
-                child: Icon(
-                  _mode == ScreenMode.liveFeed
-                      ? Icons.photo_library_outlined
-                      : (Platform.isIOS
-                          ? Icons.camera_alt_outlined
-                          : Icons.camera),
-                ),
-              ),
-            ),
-        ],
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: const [
+            Color(0xff091F56),
+            Color(0xff0A0E1A),
+          ],
+        ),
       ),
-      body: _body(),
-      floatingActionButton: _floatingActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      child: SafeArea(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            // appBar: AppBar(
+            //   actions: [
+            //     if (_allowPicker)
+            //       Padding(
+            //         padding: EdgeInsets.only(right: 20.0),
+            //       ),
+            //   ],
+            // ),
+            body: Stack(
+              fit: StackFit.expand,
+              children: [
+                Image(
+                  image: AssetImage("assets/images/background.png"),
+                  fit: BoxFit.contain,
+                  colorBlendMode: BlendMode.darken,
+                ),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      _body(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            // body: _body(),
+            floatingActionButton: _floatingActionButton(),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+          ),
+        ),
+      ),
     );
   }
 
@@ -202,22 +234,47 @@ class _CameraViewState extends State<CameraView> {
                 ],
               ),
             )
-          : Icon(
-              Icons.image,
-              size: 200,
+          : Container(),
+      Container(
+        height: 160,
+        color: Colors.white,
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 40,
             ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
-          child: Text('From Gallery'),
-          onPressed: () => _getImage(ImageSource.gallery),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
-          child: Text('Take a picture'),
-          onPressed: () => _getImage(ImageSource.camera),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 84),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      _getImage(ImageSource.camera);
+                    },
+                    child: SentLetterWidget(
+                      text: '바로찍기',
+                      image: 'assets/icons/camera.svg',
+                      color: Color(0xffADB6C8),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      _getImage(ImageSource.gallery);
+                    },
+                    child: SentLetterWidget(
+                      text: '사진첩',
+                      image: 'assets/icons/image.svg',
+                      color: Color(0xffADB6C8),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
       if (_image != null)

@@ -6,8 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gangganggang/send_letter_button.dart';
 import 'package:gangganggang/upload_camera.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
-import 'package:gangganggang/upload_gallery.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 import 'showcase_timeline.dart';
@@ -106,23 +106,6 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                   //use vertical to show  on vertical axis
                   children: <Widget>[
                     Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(41, 43, 0, 0),
-                        child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              backgroundColor: Colors.transparent,
-                              onPressed: () {
-                                //action code for button 1
-                              },
-                              child: Image(
-                                  image: AssetImage('assets/images/baby.png')),
-                            )),
-                      ),
-                    ), //button first
-                    Align(
                       alignment: Alignment.center,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
@@ -131,7 +114,18 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                             width: 80,
                             child: FloatingActionButton(
                               onPressed: () {
-                                _showModalBottomSheet();
+                                // _showModalBottomSheet();
+                                Navigator.push(
+                                    context,
+                                    PageTransition(
+                                        type: PageTransitionType.fade,
+                                        child: const UploadCamera()));
+
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             const UploadCamera()));
                                 //action code for button 2
                               },
                               backgroundColor: Color(0xff091F56),
@@ -279,7 +273,7 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const UploadGallery(),
+                            builder: (context) => const UploadCamera(),
                           ),
                         );
                       },
