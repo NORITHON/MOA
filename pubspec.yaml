@@ -81,6 +81,9 @@ flutter:
       - family: PretendardVariable
         fonts:
           - asset: assets/fonts/PretendardVariable.ttf
+      - family: Jalnan
+        fonts:
+          - asset: assets/fonts/Jalnan.ttf
 
   #
   # For details regarding fonts from package dependencies,
