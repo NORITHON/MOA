@@ -38,38 +38,27 @@ class _IntroductionViewState extends State<IntroductionView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: const [
-            Color(0xff091F56),
-            Color(0xff0A0E1A),
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Image(
+              image: AssetImage("assets/images/background.png"),
+              fit: BoxFit.contain,
+              colorBlendMode: BlendMode.darken,
+            ),
+            _buildOffstageNavigator(TabItem.favorite),
+            _buildOffstageNavigator(TabItem.home),
+            _buildOffstageNavigator(TabItem.grow),
           ],
         ),
-      ),
-      child: SafeArea(
-        bottom: false,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              Image(
-                image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.contain,
-                colorBlendMode: BlendMode.darken,
-              ),
-              _buildOffstageNavigator(TabItem.favorite),
-              _buildOffstageNavigator(TabItem.home),
-              _buildOffstageNavigator(TabItem.grow),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigation(
-            currentTab: _currentTab,
-            onSelectTab: _selectTab,
-          ),
+        bottomNavigationBar: BottomNavigation(
+          currentTab: _currentTab,
+          onSelectTab: _selectTab,
         ),
       ),
     );

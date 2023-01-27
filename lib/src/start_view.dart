@@ -50,17 +50,17 @@ class _StartViewState extends State<StartView> {
                   children: const [
                     Text(
                       '고요한 바다같은',
-                      style: TextStyle(fontFamily: 'Jalnan', fontSize: 16),
+                      style: TextStyle(fontFamily: 'Jalnan', fontSize: 18),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
                       '당신만의 소중한 시간',
-                      style: TextStyle(fontFamily: 'Jalnan', fontSize: 16),
+                      style: TextStyle(fontFamily: 'Jalnan', fontSize: 18),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     Text(
                       '모먼트 속 사진들은 당신만 확인 가능하며,',
@@ -68,7 +68,7 @@ class _StartViewState extends State<StartView> {
                     ),
                     Text(
                       '인물의 표정을 분석하여 어떤 감정 상태를 겪는지',
-                      style: tiny2_bold,
+                      style: tiny2,
                     ),
                     Text(
                       '확인할 수 있습니다.',
