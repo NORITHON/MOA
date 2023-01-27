@@ -95,29 +95,30 @@ class _StartViewState extends State<StartView> {
               //   },
               //   child: const Text('Raised Button'),
               // ),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const UploadCamera(),
+                    ),
+                  );
+                },
+                color: const Color(0xff091F56),
+                textColor: Colors.white,
+                child: const Icon(
+                  Icons.camera_alt,
+                  size: 24,
+                ),
+                padding: const EdgeInsets.all(16),
+                shape: const CircleBorder(),
+              ),
             ],
           ),
-          floatingActionButton: MaterialButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.fade,
-                  child: const UploadCamera(),
-                ),
-              );
-            },
-            color: Color(0xff091F56),
-            textColor: Colors.white,
-            child: Icon(
-              Icons.camera_alt,
-              size: 24,
-            ),
-            padding: EdgeInsets.all(16),
-            shape: CircleBorder(),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+          // floatingActionButton:
+          // floatingActionButtonLocation:
+          //     FloatingActionButtonLocation.centerDocked,
           // floatingActionButton: Container(
           //   width: MediaQuery.of(context).size.width * 0.94,
           //   //width: 410,
