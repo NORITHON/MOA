@@ -104,8 +104,10 @@ class _StartViewState extends State<StartView> {
                   //     child: const UploadCamera(),
                   //   ),
                   // );
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UploadCamera()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const UploadCamera()));
                 },
                 color: const Color(0xff091F56),
                 textColor: Colors.white,
