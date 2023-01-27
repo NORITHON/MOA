@@ -87,11 +87,11 @@ class _CameraViewState extends State<CameraView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: const [
+          colors: [
             Color(0xff091F56),
             Color(0xff0A0E1A),
           ],
@@ -104,18 +104,10 @@ class _CameraViewState extends State<CameraView> {
           },
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            // appBar: AppBar(
-            //   actions: [
-            //     if (_allowPicker)
-            //       Padding(
-            //         padding: EdgeInsets.only(right: 20.0),
-            //       ),
-            //   ],
-            // ),
             body: Stack(
               fit: StackFit.expand,
               children: [
-                Image(
+                const Image(
                   image: AssetImage("assets/images/background.png"),
                   fit: BoxFit.contain,
                   colorBlendMode: BlendMode.darken,
@@ -130,7 +122,6 @@ class _CameraViewState extends State<CameraView> {
                 ),
               ],
             ),
-            // body: _body(),
             floatingActionButton: _floatingActionButton(),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,
@@ -144,17 +135,18 @@ class _CameraViewState extends State<CameraView> {
     if (_mode == ScreenMode.gallery) return null;
     if (cameras.length == 1) return null;
     return SizedBox(
-        height: 70.0,
-        width: 70.0,
-        child: FloatingActionButton(
-          onPressed: _switchLiveCamera,
-          child: Icon(
-            Platform.isIOS
-                ? Icons.flip_camera_ios_outlined
-                : Icons.flip_camera_android_outlined,
-            size: 40,
-          ),
-        ));
+      height: 70.0,
+      width: 70.0,
+      child: FloatingActionButton(
+        onPressed: _switchLiveCamera,
+        child: Icon(
+          Platform.isIOS
+              ? Icons.flip_camera_ios_outlined
+              : Icons.flip_camera_android_outlined,
+          size: 40,
+        ),
+      ),
+    );
   }
 
   Widget _body() {
@@ -250,7 +242,7 @@ class _CameraViewState extends State<CameraView> {
                     onTap: () {
                       _getImage(ImageSource.camera);
                     },
-                    child: SentLetterWidget(
+                    child: const SentLetterWidget(
                       text: '바로찍기',
                       image: 'assets/icons/camera.svg',
                       color: Color(0xffADB6C8),
@@ -291,21 +283,6 @@ class _CameraViewState extends State<CameraView> {
     final pickedFile = await _imagePicker?.pickImage(source: source);
     if (pickedFile != null) {
       _processPickedFile(pickedFile);
-    }
-    setState(() {});
-  }
-
-  void _switchScreenMode() {
-    _image = null;
-    if (_mode == ScreenMode.liveFeed) {
-      _mode = ScreenMode.gallery;
-      _stopLiveFeed();
-    } else {
-      _mode = ScreenMode.liveFeed;
-      _startLiveFeed();
-    }
-    if (widget.onScreenModeChanged != null) {
-      widget.onScreenModeChanged!(_mode);
     }
     setState(() {});
   }

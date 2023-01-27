@@ -1,8 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gangganggang/painters/face_detector_painter.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 
@@ -59,14 +56,22 @@ class _UploadCameraState extends State<UploadCamera> {
           inputImage.inputImageData!.imageRotation);
       _customPaint = CustomPaint(painter: painter);
     } else {
-      // String text = 'Faces found: ${faces.length}\n\n';
-      String text = '\n\n';
+      String text = '';
 
       String smile = 'Smile Probability: ';
       for (final face in faces) {
         // text += 'face: ${face.boundingBox}\n\n';
         smile += '${face.smilingProbability}\n\n';
-        print(face.smilingProbability);
+        if (face.smilingProbability! > 0.86) {
+          text = '웃음';
+        } else if (face.smilingProbability! > 0.6) {
+          text = '미소';
+        } else if (face.smilingProbability! > 0.01) {
+          text = '무표정';
+        } else {
+          text = '슬픔';
+        }
+        print(text);
       }
       _text = text;
       _smile = smile;

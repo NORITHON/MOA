@@ -119,6 +119,8 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
               ),
             ),
           ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
           bottomNavigationBar: BottomAppBar(
             color: const Color(0x002a2a2a),
             child: SizedBox(
