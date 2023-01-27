@@ -7,8 +7,10 @@ import 'package:gangganggang/moment_finish.dart';
 import 'package:google_mlkit_commons/src/input_image.dart';
 import 'package:onboarding/onboarding.dart';
 
+import 'loading_animation.dart';
+
 class MomentAdd extends StatefulWidget {
-  MomentAdd({Key? key, required this.image, required this.path})
+  const MomentAdd({Key? key, required this.image, required this.path})
       : super(key: key);
   final File? image;
   final String? path;
@@ -435,7 +437,13 @@ class _MomentState extends State<MomentAdd> {
                             ),
                             SizedBox(width: 10),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => loading_animation(
+                                            path: widget.path)));
+                              },
                               child: Text('당신'),
                               style: ButtonStyle(
                                 padding: MaterialStateProperty.all(
