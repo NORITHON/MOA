@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gangganggang/moment_add.dart';
 import 'package:gangganggang/send_letter_button.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -254,7 +255,12 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => moment_add()));
+                      },
                       child: SentLetterWidget(
                         text: '바로찍기',
                         image: 'assets/icons/camera.svg',

@@ -38,6 +38,12 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_highlight: ^0.7.0
   flutter_svg: ^1.1.6
+  smooth_page_indicator: ^1.0.0+2
+  onboarding: ^3.1.0
+  cupertino_onboarding: ^1.1.1
+  introduction_screen: ^3.1.4
+  flutter_onboard: ^2.0.0
+  flutter_walkthrough_screen: ^2.0.2
 
 dev_dependencies:
   flutter_test:
