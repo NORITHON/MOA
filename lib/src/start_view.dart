@@ -79,45 +79,83 @@ class _StartViewState extends State<StartView> {
                   ],
                 ),
               ),
+
+              // ElevatedButton(
+              //   style: ButtonStyle(
+              //     width: 100,
+              //   ),
+              //   onPressed: () {
+              //     Navigator.push(
+              //       context,
+              //       PageTransition(
+              //         type: PageTransitionType.fade,
+              //         child: const UploadCamera(),
+              //       ),
+              //     );
+              //   },
+              //   child: const Text('Raised Button'),
+              // ),
             ],
           ),
-          floatingActionButton: Container(
-            width: MediaQuery.of(context).size.width * 0.94,
-            //width: 410,
-            height: 198,
-            child: Stack(
-              //will break to another line on overflow
-              //use vertical to show  on vertical axis
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: SizedBox(
-                        height: 80,
-                        width: 80,
-                        child: FloatingActionButton(
-                          onPressed: () {
-                            // _showModalBottomSheet();
-                            Navigator.push(
-                              context,
-                              PageTransition(
-                                type: PageTransitionType.fade,
-                                child: const UploadCamera(),
-                              ),
-                            );
-                            //action code for button 2
-                          },
-                          backgroundColor: Color(0xff091F56),
-                          child: Image(
-                              image: AssetImage(
-                                  'assets/icons/icon-camera-mono.png')),
-                        )),
-                  ),
+          floatingActionButton: MaterialButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.fade,
+                  child: const UploadCamera(),
                 ),
-              ],
+              );
+            },
+            color: Color(0xff091F56),
+            textColor: Colors.white,
+            child: Icon(
+              Icons.camera_alt,
+              size: 24,
             ),
+            padding: EdgeInsets.all(16),
+            shape: CircleBorder(),
           ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          // floatingActionButton: Container(
+          //   width: MediaQuery.of(context).size.width * 0.94,
+          //   //width: 410,
+          //   height: 198,
+          //   child: Stack(
+          //     //will break to another line on overflow
+          //     //use vertical to show  on vertical axis
+          //     children: <Widget>[
+          //       Align(
+          //         alignment: Alignment.center,
+          //         child: Padding(
+          //           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+          //           child: SizedBox(
+          //             height: 80,
+          //             width: 80,
+          //             child: FloatingActionButton(
+          //               onPressed: () {
+          //                 // _showModalBottomSheet();
+          // Navigator.push(
+          //   context,
+          //   PageTransition(
+          //     type: PageTransitionType.fade,
+          //     child: const UploadCamera(),
+          //   ),
+          // );
+          //                 //action code for button 2
+          //               },
+          //               backgroundColor: Color(0xff091F56),
+          //               child: Image(
+          //                   image: AssetImage(
+          //                       'assets/icons/icon-camera-mono.png')),
+          //             ),
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ),
       ),
     );
