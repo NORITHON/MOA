@@ -10,11 +10,11 @@ class melon extends StatelessWidget {
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.only(top: 145),
+                padding: EdgeInsets.only(top: 125),
                 child: Align(
                   alignment: Alignment.center,
                   child: const Text(
-                    '소중한 모먼트가\n성공적으로 추가되었습니다 :)',
+                    '소중한 모먼트가\n\n성공적으로 추가되었습니다 :)',
                     style: TextStyle(
                         fontFamily: 'Jalnan',
                         fontSize: 20,
