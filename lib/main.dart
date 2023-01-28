@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: melon(),
+      home: loading_animation(),
     );
   }
 }
