@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'package:gangganggang/analysis_result.dart';
 
 void main() {
   runApp(loading_animation());
