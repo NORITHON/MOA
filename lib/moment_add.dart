@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/themes/color-brewer.dart';
+import 'package:gangganggang/analysis_result.dart';
 import 'package:gangganggang/moment_baby.dart';
 import 'package:gangganggang/moment_finish.dart';
 import 'package:google_mlkit_commons/src/input_image.dart';
@@ -397,6 +398,14 @@ class _MomentState extends State<MomentAdd> {
                         const SizedBox(height: 50),
                         const Text(
                           '누구의 사진인가요?',
+                          style: TextStyle(
+                              fontFamily: 'Prestendard-Bold',
+                              fontSize: 18,
+                              color: Colors.white),
+                          textAlign: TextAlign.center,
+                        ),
+                        const Text(
+                          '누구의 사진인가요?',
                           style: pageTitleStyle,
                           textAlign: TextAlign.center,
                         ),
@@ -441,7 +450,7 @@ class _MomentState extends State<MomentAdd> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => loading_animation(
+                                        builder: (context) => analysis_result(
                                             path: widget.path)));
                               },
                               child: Text('당신'),
