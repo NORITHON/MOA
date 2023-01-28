@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_highlight/themes/color-brewer.dart';
+import 'package:gangganggang/analysis_result.dart';
 import 'package:gangganggang/moment_baby.dart';
 import 'package:gangganggang/moment_finish.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
@@ -443,8 +444,8 @@ class _MomentState extends State<MomentAdd> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            MomentBaby(image: widget.image!)));
+                                        builder: (context) => analysis_result(
+                                            path: widget.path)));
                               },
                               child: Text(
                                 '당신',
