@@ -33,7 +33,7 @@ class melon extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 28),
               ),
-              SizedBox(
+              Container(
                 height: 38,
                 width: 140,
                 child: ElevatedButton(
@@ -42,10 +42,6 @@ class melon extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(
                         Colors.black), //syleForm에서  primarycolor랑 같다.
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.zero,
-                            side: BorderSide(color: Colors.white))),
 
                     backgroundColor:
                         MaterialStateProperty.resolveWith((states) {
@@ -74,7 +70,7 @@ class melon extends StatelessWidget {
                   top: 180,
                 ),
               ),
-              SizedBox(
+              Container(
                 height: 43,
                 width: 124,
                 child: ElevatedButton(
@@ -83,10 +79,6 @@ class melon extends StatelessWidget {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(
                         Colors.black), //syleForm에서  primarycolor랑 같다.
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.zero,
-                            side: BorderSide(color: Colors.white))),
 
                     backgroundColor:
                         MaterialStateProperty.resolveWith((states) {
