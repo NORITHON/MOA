@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gangganggang/melon.dart';
 import 'package:gangganggang/painters/face_detector_painter.dart';
 import 'package:gangganggang/src/introduction_view.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
@@ -42,11 +43,8 @@ class _analysis_resultState extends State<analysis_result> {
                     EdgeInsets.only(top: 70, left: 113, right: 113, bottom: 60),
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    '당신의 순간 추가하기',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18),
-                  ),
+                  child: Text('당신의 순간 추가하기',
+                      textAlign: TextAlign.center, style: subtitle2),
                 ),
               ),
               const Padding(
@@ -175,10 +173,8 @@ class _analysis_resultState extends State<analysis_result> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => IntroductionView()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => melon()));
                 },
                 child: Text(
                   '다음',
