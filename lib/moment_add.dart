@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_highlight/themes/color-brewer.dart';
 import 'package:gangganggang/moment_baby.dart';
 import 'package:gangganggang/moment_finish.dart';
+import 'package:gangganggang/utils/app_text_style.dart';
 import 'package:google_mlkit_commons/src/input_image.dart';
 import 'package:onboarding/onboarding.dart';
 
@@ -383,24 +384,28 @@ class _MomentState extends State<MomentAdd> {
                   children: [
                     Column(
                       children: [
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.only(bottom: 30.0),
-                          child: Text(
-                            '모먼트 추가하기',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
+                          child: Text('모먼트 추가하기',
+                              style: subtitle2.copyWith(color: Colors.white)),
                         ),
-                        Image.file(widget.image!),
+                        Container(
+                            height: 225,
+                            width: 335,
+                            child: Image.file(
+                              widget.image!,
+                              fit: BoxFit.fill,
+                            )),
                         const SizedBox(height: 50),
                         const Text(
                           '누구의 사진인가요?',
-                          style: pageTitleStyle,
+                          style: TextStyle(
+                              fontFamily: 'Jalnan',
+                              fontSize: 20,
+                              color: Colors.white),
                           textAlign: TextAlign.center,
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 28),
                         Row(
                           children: [
                             ElevatedButton(
@@ -411,7 +416,13 @@ class _MomentState extends State<MomentAdd> {
                                         builder: (context) =>
                                             MomentBaby(image: widget.image!)));
                               },
-                              child: Text('가을'),
+                              child: Text(
+                                '가을',
+                                style: TextStyle(
+                                    fontFamily: 'Jalnan',
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              ),
                               style: ButtonStyle(
                                 padding: MaterialStateProperty.all(
                                     const EdgeInsets.fromLTRB(80, 15, 80, 15)),
@@ -444,7 +455,13 @@ class _MomentState extends State<MomentAdd> {
                                         builder: (context) => loading_animation(
                                             path: widget.path)));
                               },
-                              child: Text('당신'),
+                              child: Text(
+                                '당신',
+                                style: TextStyle(
+                                    fontFamily: 'Jalnan',
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              ),
                               style: ButtonStyle(
                                 padding: MaterialStateProperty.all(
                                     const EdgeInsets.fromLTRB(80, 15, 80, 15)),
@@ -474,7 +491,7 @@ class _MomentState extends State<MomentAdd> {
                           '당신의 사진은 당신만 확인이 가능하며\n'
                           '당신의 표정을 분석하여 당신의 감정이 어떤 상태인지\n'
                           '확인할 수 있습니다.\n',
-                          style: pageInfoStyle,
+                          style: tiny1.copyWith(color: Colors.white),
                           textAlign: TextAlign.center,
                         ),
                       ],
