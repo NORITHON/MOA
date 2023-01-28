@@ -68,7 +68,7 @@ const TextStyle lead_bold = TextStyle(
 const TextStyle body = TextStyle(
   fontFamily: 'PretendardVariable',
   fontVariations: <FontVariation>[FontVariation('wght', 400.0)],
-  fontSize: 18.0,
+  fontSize: 16.0,
   height: 1.6,
 );
 
