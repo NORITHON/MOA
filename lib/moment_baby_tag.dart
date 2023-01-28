@@ -76,7 +76,7 @@ class _MomentBabyTag extends State<MomentBabyTag> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 211),
+                const SizedBox(height: 150),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
