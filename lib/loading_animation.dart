@@ -366,6 +366,7 @@ class WavePathHorizontal {
       returnPath.lineTo(startPointX, crossAxisEndPoint);
       returnPath.close();
     }
+    analysis_result();
     return returnPath;
   }
 }
