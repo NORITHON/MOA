@@ -89,7 +89,7 @@ class _StartViewState extends State<StartView> {
                     ),
                   );
                 },
-                child: SizedBox(
+                child: Container(
                   width: 50,
                   height: 50,
                   color: Colors.black,
