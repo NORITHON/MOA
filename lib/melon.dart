@@ -56,18 +56,28 @@ class melon extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: 30),
                 child: Text(
                   '오늘의 당신은 슬픔을 느끼고 있군요...',
+                  style: TextStyle(
+                      fontFamily: 'PretendardVariable',
+                      fontSize: 16,
+                      color: Colors.white),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 12),
-                child: Text('최근 많이 들었던 노래를 준비했어요.\n노래를 들으며 기분 전환 어떠신가요?'),
+                padding: EdgeInsets.only(top: 17),
+                child: Text(
+                  '최근 많이 들었던 노래를 준비했어요.\n노래를 들으며 기분 전환 어떠신가요?',
+                  style: TextStyle(
+                      fontFamily: 'PretendardVariable',
+                      fontSize: 16,
+                      color: Colors.white),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: 180,
+                  top: 170,
                 ),
               ),
               Container(
