@@ -7,7 +7,6 @@ import 'package:gangganggang/src/mom_view.dart';
 import 'package:gangganggang/src/splash_view.dart';
 import 'package:gangganggang/src/start_view.dart';
 import 'package:gangganggang/analysis_result.dart';
-import 'package:gangganggang/loading_animation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'src/showcase_timeline_tile.dart';

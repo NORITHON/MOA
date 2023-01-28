@@ -4,7 +4,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../showcase_timeline.dart';
 
 const example4 = Example(
-  name: '2023.01.24',
+  name: 'D-27',
   description:
       'You can decide if a tile is the first or the last in a timeline. '
       'This way you control whether a start or end line must be rendered.',

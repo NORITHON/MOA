@@ -4,7 +4,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../showcase_timeline.dart';
 
 const example1 = Example(
-  name: '2023.01.23',
+  name: 'D-26',
   description: 'If the axis is vertical, it aligns default to the start, with '
       'a height of 100. The tile will always try to be as wide as it can get horizontally.\n\n'
       'If the axis is horizontal, It aligns default to the start, with a width'

@@ -8,8 +8,6 @@ import 'package:gangganggang/utils/app_text_style.dart';
 import 'package:google_mlkit_commons/src/input_image.dart';
 import 'package:onboarding/onboarding.dart';
 
-import 'loading_animation.dart';
-
 class MomentAdd extends StatefulWidget {
   const MomentAdd({Key? key, required this.image, required this.path})
       : super(key: key);
@@ -42,14 +40,7 @@ class _MomentState extends State<MomentAdd> {
                   vertical: 40.0,
                 ),
               ),
-              Text(
-                '모먼트 추가하기',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
+              Text('모먼트 추가하기', style: subtitle1.copyWith(color: Colors.white)),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 25.0,
@@ -452,8 +443,8 @@ class _MomentState extends State<MomentAdd> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => loading_animation(
-                                            path: widget.path)));
+                                        builder: (context) =>
+                                            MomentBaby(image: widget.image!)));
                               },
                               child: Text(
                                 '당신',

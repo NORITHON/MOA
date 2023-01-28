@@ -4,7 +4,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../showcase_timeline.dart';
 
 const example10 = Example(
-  name: '2023.01.26',
+  name: 'D-29',
   description:
       'The TimelineDivider widget allows you to connect tiles that are aligned '
       'in different horizontal or vertical axis, when combined with TimelineAlign.manual.',

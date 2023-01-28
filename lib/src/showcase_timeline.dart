@@ -48,7 +48,7 @@ class ShowcaseTimeline extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 0),
                   Expanded(
                     child: CustomScrollView(
                       slivers: <Widget>[

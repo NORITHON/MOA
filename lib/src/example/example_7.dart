@@ -4,7 +4,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../showcase_timeline.dart';
 
 const example7 = Example(
-  name: '2023.01.25',
+  name: 'D-28',
   description: 'With IconStyle you can provide an Icon to be rendered inside '
       'the default indicator.',
   code: '''
