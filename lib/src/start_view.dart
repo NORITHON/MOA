@@ -7,8 +7,10 @@ import 'package:gangganggang/src/baby_showcase_timeline_tile.dart';
 import 'package:gangganggang/src/bottom_navigation.dart';
 import 'package:gangganggang/src/tab_item.dart';
 import 'package:gangganggang/src/tab_navigator.dart';
+import 'package:gangganggang/upload_camera.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 import 'showcase_timeline.dart';
@@ -77,37 +79,104 @@ class _StartViewState extends State<StartView> {
                   ],
                 ),
               ),
-            ],
-          ),
-          floatingActionButton: Container(
-            width: MediaQuery.of(context).size.width * 0.94,
-            //width: 410,
-            height: 198,
-            child: Stack(
-              //will break to another line on overflow
-              //use vertical to show  on vertical axis
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: SizedBox(
-                        height: 80,
-                        width: 80,
-                        child: FloatingActionButton(
-                          onPressed: () {
-                            _showModalBottomSheet();
-                            //action code for button 2
-                          },
-                          backgroundColor: Color(0xff091F56),
-                          child: Image(
-                              image: AssetImage(
-                                  'assets/icons/icon-camera-mono.png')),
-                        )),
-                  ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: const UploadCamera(),
+                    ),
+                  );
+                },
+                child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  color: Colors.black,
                 ),
-              ],
-            ),
+              ),
+
+              // ElevatedButton(
+              //   style: ButtonStyle(
+              //     width: 100,
+              //   ),
+              //   onPressed: () {
+              // Navigator.push(
+              //   context,
+              //   PageTransition(
+              //     type: PageTransitionType.fade,
+              //     child: const UploadCamera(),
+              //   ),
+              // );
+              //   },
+              //   child: const Text('Raised Button'),
+              // ),
+              // MaterialButton(
+              //   onPressed: () {
+              //     // Navigator.push(
+              //     //   context,
+              //     //   PageTransition(
+              //     //     type: PageTransitionType.fade,
+              //     //     child: const UploadCamera(),
+              //     //   ),
+              //     // );
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => const UploadCamera()));
+              //   },
+              //   color: const Color(0xff091F56),
+              //   textColor: Colors.white,
+              //   child: const Icon(
+              //     Icons.camera_alt,
+              //     size: 24,
+              //   ),
+              //   padding: const EdgeInsets.all(16),
+              //   shape: const CircleBorder(),
+              // ),
+            ],
+            // ),
+            //   floatingActionButtonLocation:
+            //       FloatingActionButtonLocation.centerDocked,
+            //   floatingActionButton: Container(
+            //     width: MediaQuery.of(context).size.width * 0.94,
+            //     //width: 410,
+            //     height: 198,
+            //     child: Stack(
+            //       //will break to another line on overflow
+            //       //use vertical to show  on vertical axis
+            //       children: <Widget>[
+            //         Align(
+            //           alignment: Alignment.center,
+            //           child: Padding(
+            //             padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            //             child: SizedBox(
+            //               height: 80,
+            //               width: 80,
+            //               child: FloatingActionButton(
+            //                 onPressed: () {
+            //                   // _showModalBottomSheet();
+            //                   Navigator.push(
+            //                     context,
+            //                     PageTransition(
+            //                       type: PageTransitionType.fade,
+            //                       child: const UploadCamera(),
+            //                     ),
+            //                   );
+            //                   //action code for button 2
+            //                 },
+            //                 backgroundColor: Color(0xff091F56),
+            //                 child: Image(
+            //                     image: AssetImage(
+            //                         'assets/icons/icon-camera-mono.png')),
+            //               ),
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ),
         ),
       ),

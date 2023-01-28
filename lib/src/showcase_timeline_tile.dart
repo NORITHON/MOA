@@ -2,18 +2,22 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gangganggang/moment_add.dart';
 import 'package:gangganggang/send_letter_button.dart';
+import 'package:gangganggang/upload_camera.dart';
 import 'package:gangganggang/src/baby_showcase_timeline_tile.dart';
 import 'package:gangganggang/src/bottom_navigation.dart';
 import 'package:gangganggang/src/tab_item.dart';
 import 'package:gangganggang/src/tab_navigator.dart';
 import 'package:gangganggang/utils/app_text_style.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 import 'showcase_timeline.dart';
 
 class ShowcaseTimelineTile extends StatefulWidget {
+  const ShowcaseTimelineTile({Key? key}) : super(key: key);
+
   @override
   State<ShowcaseTimelineTile> createState() => _ShowcaseTimelineTileState();
 }
@@ -39,11 +43,11 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: const [
+          colors: [
             Color(0xff091F56),
             Color(0xff0A0E1A),
           ],
@@ -55,8 +59,8 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
           backgroundColor: Colors.transparent,
           body: Stack(
             fit: StackFit.expand,
-            children: <Widget>[
-              Image(
+            children: [
+              const Image(
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.contain,
                 colorBlendMode: BlendMode.darken,
@@ -114,76 +118,92 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
           ),
           floatingActionButton: ClipRRect(
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: Container(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.94,
                 //width: 410,
-                height: 198,
-                child: Stack(
-                  //will break to another line on overflow
-                  //use vertical to show  on vertical axis
+                height: 98,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    // _showModalBottomSheet();
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.fade,
+                        child: const UploadCamera(),
+                      ),
+                    );
+                  },
+                  backgroundColor: const Color(0xff091F56),
+                  child: const Image(
+                    image: AssetImage('assets/icons/icon-camera-mono.png'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          bottomNavigationBar: BottomAppBar(
+            color: const Color(0x002a2a2a),
+            child: SizedBox(
+              height: 78,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(41, 43, 0, 0),
-                        child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              backgroundColor: Colors.transparent,
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            BabyShowcaseTimelineTile()));
-                                //action code for button 1
-                              },
-                              child: Image(
-                                  image: AssetImage('assets/images/baby.png')),
-                            )),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 82,
+                        width: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.home,
+                            ),
+                            Text(
+                              '홈',
+                            ),
+                          ],
+                        ),
                       ),
-                    ), //button first
-                    Align(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 86, 0, 0),
-                        child: SizedBox(
-                            height: 80,
-                            width: 80,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                _showModalBottomSheet();
-                                //action code for button 2
-                              },
-                              backgroundColor: Color(0xff091F56),
-                              child: Image(
-                                  image: AssetImage(
-                                      'assets/icons/icon-camera-mono.png')),
-                            )),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 82,
+                        width: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.favorite),
+                            Text(
+                              '돌아보기',
+                            ),
+                          ],
+                        ),
                       ),
-                    ), // button second
-
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 43, 41, 0),
-                        child: SizedBox(
-                            height: 62,
-                            width: 62,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                //action code for button 3
-                              },
-                              backgroundColor: Colors.transparent,
-                              child: Image(
-                                  image: AssetImage('assets/images/mom.png')),
-                            )),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: SizedBox(
+                        height: 82,
+                        width: 75,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.settings),
+                            Text(
+                              '설정',
+                            ),
+                          ],
+                        ),
                       ),
-                    ), // button third
-
-                    // Add more buttons here
+                    ),
                   ],
                 ),
               ),
@@ -215,8 +235,16 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: () {},
-                      child: SentLetterWidget(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UploadCamera(),
+                            // builder: (context) => moment_add()));
+                          ),
+                        );
+                      },
+                      child: const SentLetterWidget(
                         text: '바로찍기',
                         image: 'assets/icons/camera.svg',
                         color: Color(0xffADB6C8),
@@ -226,8 +254,15 @@ class _ShowcaseTimelineTileState extends State<ShowcaseTimelineTile> {
                       height: 80,
                     ),
                     GestureDetector(
-                      onTap: () {},
-                      child: SentLetterWidget(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UploadCamera(),
+                          ),
+                        );
+                      },
+                      child: const SentLetterWidget(
                         text: '사진첩',
                         image: 'assets/icons/image.svg',
                         color: Color(0xffADB6C8),
@@ -267,7 +302,7 @@ class _IndicatorExample extends StatelessWidget {
       }
       if (number == '2') {
         return Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   image: AssetImage('assets/emoji/emo_blue_happy.png'))),
@@ -275,7 +310,7 @@ class _IndicatorExample extends StatelessWidget {
       }
       if (number == '3') {
         return Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   image: AssetImage(
@@ -284,7 +319,7 @@ class _IndicatorExample extends StatelessWidget {
       }
       if (number == '4') {
         return Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   image:
@@ -293,7 +328,7 @@ class _IndicatorExample extends StatelessWidget {
       }
       if (number == '5') {
         return Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   image: AssetImage('assets/emoji/emo_orange_sad.png'))),
@@ -301,7 +336,7 @@ class _IndicatorExample extends StatelessWidget {
       }
       if (number == '6') {
         return Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   image:
@@ -363,13 +398,13 @@ class _RowExample extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Expanded(
             child: Text(example.name, style: tiny1),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
         ],
