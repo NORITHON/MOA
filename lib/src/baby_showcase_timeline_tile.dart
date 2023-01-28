@@ -94,71 +94,71 @@ class _BabyShowcaseTimelineTileState extends State<BabyShowcaseTimelineTile> {
               ),
             ],
           ),
-          bottomNavigationBar: BottomAppBar(
-            color: const Color(0x2A2A2A),
-            child: SizedBox(
-              height: 78,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 82,
-                        width: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.home,
-                            ),
-                            Text(
-                              '홈',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 82,
-                        width: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.favorite),
-                            Text(
-                              '돌아보기',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    GestureDetector(
-                      onTap: () {},
-                      child: SizedBox(
-                        height: 82,
-                        width: 75,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.settings),
-                            Text(
-                              '설정',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // bottomNavigationBar: BottomAppBar(
+          //   color: const Color(0x2A2A2A),
+          //   child: SizedBox(
+          //     height: 78,
+          //     child: Padding(
+          //       padding: const EdgeInsets.symmetric(horizontal: 20),
+          //       child: Row(
+          //         children: <Widget>[
+          //           GestureDetector(
+          //             onTap: () {},
+          //             child: SizedBox(
+          //               height: 82,
+          //               width: 75,
+          //               child: Column(
+          //                 mainAxisAlignment: MainAxisAlignment.center,
+          //                 children: [
+          //                   Icon(
+          //                     Icons.home,
+          //                   ),
+          //                   Text(
+          //                     '홈',
+          //                   ),
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //           Spacer(),
+          //           GestureDetector(
+          //             onTap: () {},
+          //             child: SizedBox(
+          //               height: 82,
+          //               width: 75,
+          //               child: Column(
+          //                 mainAxisAlignment: MainAxisAlignment.center,
+          //                 children: [
+          //                   Icon(Icons.favorite),
+          //                   Text(
+          //                     '돌아보기',
+          //                   ),
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //           Spacer(),
+          //           GestureDetector(
+          //             onTap: () {},
+          //             child: SizedBox(
+          //               height: 82,
+          //               width: 75,
+          //               child: Column(
+          //                 mainAxisAlignment: MainAxisAlignment.center,
+          //                 children: [
+          //                   Icon(Icons.settings),
+          //                   Text(
+          //                     '설정',
+          //                   ),
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ),
       ),
     );
